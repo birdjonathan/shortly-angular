@@ -1,6 +1,36 @@
 <div id='container'>
-<!-- Your code here -->
-
+  <nav class="navigation">
+    <ul>
+      <li>
+        <a href="#/links">Links</a>
+      </li>
+      <li>
+        <a class="selected" href="#/shorten">Shorten</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="creator">
+    <form name="shortlyForm" 
+          ng-submit="addLink()" 
+          novalidate>
+      <input ng-model="link.url" 
+             name="link"
+             type="url"
+             placeholder="http://some_site.com" required
+             ng-class="{'error': shortlyForm.$invalid && shortlyForm.$dirty}" />
+      <button type="submit" 
+              ng-disabled='shortlyForm.$invalid'>
+        Submit
+      </button>
+      <img ng-if='loading' src="assets/spiffygif_46x46.gif" />
+    </form>
+    <div ng-if='shortlyForm.link.$error.required && shortlyForm.$dirty' class="message">
+      <h2> Url required </h2>
+    </div>
+    <div ng-show='shortlyForm.link.$error.url && shortlyForm.$dirty' class="message">
+      <h2>Not a valid url</h2>
+   </div>
+  </div>
 </div>
 
 
