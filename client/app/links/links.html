@@ -1,8 +1,19 @@
 <div id='container'>
-  <ul>
-    <li ng-repeat="link in data.links">
+  <nav class="navigation">
+    <ul>
+      <li>
+        <a class="selected" href="#/links">Links</a>
+      </li>
+      <li>
+        <a href="#/shorten">Shorten</a>
+      </li>
+    </ul>
+  </nav>
+  <input type="text" ng-model='search' placeholder='filter' />
+  <ul class="links">
+    <li class="link" ng-repeat="link in data.links | filter:search | orderBy:'visits':true">
       <span>{{ link.title }}</span>
-      <a href="{{ link.base_url }}/{{link.code}}">{{link.base_url}}/{{link.code}}</a>
+      <a href="http://localhost:8000/api/links/{{link.code}}">{{link.base_url}}/{{link.code}}</a>
     </li>
   </ul>
 </div>
