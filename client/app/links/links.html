@@ -13,8 +13,12 @@
   <ul class="links">
     <li class="link" ng-repeat="link in data.links | filter:search | orderBy:'visits':true">
       <span>{{ link.title }}</span>
-      <a href="http://localhost:8000/api/links/{{link.code}}">{{link.base_url}}/{{link.code}}</a>
+      <a href="{{link.base_url}}/api/links/{{link.code}}">
+        {{link.base_url}}/{{link.code}}
+      </a>
+      <span class="visits">
+        <span class="count">{{link.visits}}</span>
+      </span>
     </li>
   </ul>
 </div>
-
