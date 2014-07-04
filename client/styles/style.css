@@ -53,6 +53,10 @@ h1 {
   margin-top: 10px;
 }
 
+.links{
+  list-style: none;
+}
+
 .link {
   clear: both;
   margin-bottom: 5px;
@@ -87,6 +91,13 @@ h1 {
 .link .original {
   color: #aaa;
   font-size: 12px;
+}
+
+.link .url {
+  font-size:14px;
+  font-weight: 600;
+  position: absolute;
+  left: 50%;
 }
 
 .link .info {
